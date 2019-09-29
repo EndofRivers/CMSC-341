@@ -1,0 +1,67 @@
+QUESTION ONE
+--------------------------------------------------------------------------------------
+
+Prove: For all full ternary tree, leaves(T) = 2 * intNodes(T) + 1
+
+Let X be any positive integer.
+                  X
+Let intNodes(T) = Σ 3^X
+                 i=0
+For example, if X is 0, then the summation is 1. The series will follow 1,4,13,40,...
+
+Let leaves(T) = 3^(X+1)
+
+For exmaple, if X is 0, then it equals 3. The series will follow 3, 9, 27, 81,...
+
+           X
+Prove: (2)(Σ 3^X) + 1 = 3^(X+1)
+          i=0
+
+Let X be 0,
+	       X
+	   (2)(Σ 3^X) + 1 = (2)(1) + 1 = 3 = 3^(0+1) = 3
+	      i=0
+
+Inductive Case, X+1
+
+	      X+1
+	   (2)(Σ 3^(X+1)) + 1 = (2)(4) + 1 = 9 = 3^((X+1)+1) = 9
+	      i=0
+
+Therefore,     X
+	   (2)(Σ 3^X) + 1 = 3^(X+1)
+	      i=0
+					       X
+Because leaves(T) = 3^(X+1) and intNodes(T) = (Σ 3^X)
+		    	    		      i=0
+Then,
+
+	leaves(T) = (2)(intNodes(T)) + 1
+
+-------------------------------------------------------------------------------------------
+QUESTION 2
+-------------------------------------------------------------------------------------------
+      T	      T'
+	A	A
+       / \     / \
+      B   C   C   B
+
+Preorder of T: A,B,C
+
+Postorder of T': C,B,A
+
+By the definition of Preorder, you must visit the root node first.
+By the definition of Postorder, you must visit the root node last.
+Therefore, The data in the Root Node will always be in reverse order after the reflection.
+
+A reflection of a tree means that you flip the positions of every parent's children.
+So left becomes right, and right becomes left.
+
+By the definition of Preorder, you must traverse the left subtree first, then the right subtree.
+By the definition of Postorder, you must traverse the left subtree first, then the right subtree.
+
+Therefore, because the left and right children were swapped. 
+In T' it is as if you traversed over the right subtree before you did the left.
+Which would give you the reverse order that you were looking for.
+
+	

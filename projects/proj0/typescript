@@ -1,0 +1,74 @@
+Script started on Sun 04 Feb 2018 04:48:08 PM EST
+[nlong2@linux2 proj0] g++ -gstabs+ proj0.cpp -o proj0.out
+[nlong2@linux2 proj0] ls
+proj0.cpp  proj0.out  typescript
+[nlong2@linux2 proj0] ./proj0.out
+3
+6
+7
+5
+Segmentation fault
+[nlong2@linux2 proj0] gdb proj0.out
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux (7.2-92.el6)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /afs/umbc.edu/users/n/l/nlong2/home/341/proj0/proj0.out...done.
+(gdb) b 39
+Breakpoint 1 at 0x400c19: file proj0.cpp, line 39.
+(gdb) r
+Starting program: /afs/umbc.edu/users/n/l/nlong2/home/341/proj0/proj0.out 
+3
+
+Breakpoint 1, main () at proj0.cpp:39
+39	    delete str[pick];
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.209.el6_9.2.x86_64 libgcc-4.4.7-18.el6.x86_64 libstdc++-4.4.7-18.el6.x86_64
+(gdb) dispaly p[K[K[K[K[K[Kplay pick
+1: pick = 3
+(gdb) display str[pick[[K]
+2: str[pick] = (string *) 0x602100
+(gdb) continue
+Continuing.
+6
+
+Breakpoint 1, main () at proj0.cpp:39
+39	    delete str[pick];
+2: str[pick] = (string *) 0x6021f0
+1: pick = 6
+(gdb) continue
+Continuing.
+7
+
+Breakpoint 1, main () at proj0.cpp:39
+39	    delete str[pick];
+2: str[pick] = (string *) 0x602240
+1: pick = 7
+(gdb) contun[K[K[K[K[K[Kcontinue
+Continuing.
+5
+
+Breakpoint 1, main () at proj0.cpp:39
+39	    delete str[pick];
+2: str[pick] = (string *) 0x6021a0
+1: pick = 5
+(gdb) continue
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000000387e490580 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) ()
+   from /usr/lib64/libstdc++.so.6
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 17564] will be killed.
+
+Quit anyway? (y or n) y
+[nlong2@linux2 proj0] exit
+exit
+
+Script done on Sun 04 Feb 2018 04:50:09 PM EST

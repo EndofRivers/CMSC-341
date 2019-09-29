@@ -1,0 +1,166 @@
+QUESTION ONE
+--------------------------------------------------------------------------------------
+An AVL tree uses the simple recursive structural constraint that the heights of the left and right
+subtrees of any node can differ by at most 1. However, this does not put a fixed constraint on the
+maximum difference in depth between any two given leaves of the AVL tree. In fact, the difference
+in depth between the shallowest and deepest leaves can be arbitrarily large given a large enough
+tree--but there are relative limits.
+
+a) Determine the minimim possible depth of other leaves as a function of dmax, the depth of the
+deepest leaf. (I.e., state a claim like "the depth of the shallowest leaf can be no less than the
+depth of the deepest leaf minus 2 (dmax - 2))
+
+      	     	     	  	  	 Wat.
+
+b) Draw an AVL tree where there is at least a 3-level difference between some pair of leaves. 
+Make sure that what you drew is a legal AVL tree! 
+                                 X
+                                / \
+                    ___________/   \___________  
+                   /                           \
+                  /                             \
+                 X                               X               
+                / \                             / \             
+            ___/   \___                     ___/   \___
+           /           \                   /           \       
+          /             \                 /             \     
+         X               X               X               X   
+       _/ \_           _/ \_           _/ \_           _/ \_
+      /     \         /     \         /     \         /     \
+     X       X       X       X       X       X       X       X
+    / \     / \     / \     /       / \     /       /
+   X   X   X   X   X   X   X       X   X   X       X 
+  / \ /   /       /               /
+  X X X  X       X               X
+ /
+X
+--------------------------------------------------------------------------------------
+QUESTION TWO
+--------------------------------------------------------------------------------------
+For this question, assume we are talking about the version of red-black trees with dummy leaf
+nodes, i.e., all leaf nodes are black, and leaf nodes do not contain data. Also, we here define
+the black depth of a leaf to be the number of black nodes in the path from the root to the leaf,
+including the root but not counting the leaf node itself. Recall that in a red-black tree, all
+leaves in our tree must have the same black depth.
+
+a) What is the maximum true height, i.e., counting both red and black nodes, of a red-black tree 
+with a black depth of 3? (Recall that the height of a tree is the number of edges between the root
+and the deepest leaf.) Another way of stating the question would be: what is the depth of the 
+deepest possible leaf in a reg-black tree of black depth 3
+
+ANSWER : The maximum true height for a RB Tree with a black depth of 3 is 6.
+
+b) What is the absolute mimimum number of internal nodes (i.e., not counting the dummy leaves) 
+needed to construct a tree as described in (a) above?
+
+ANSWER : 10 Internal nodes.
+
+c) Draw a diagram of your red-black tree from part (b). You do not have to draw the dummy leaf 
+nodes. 
+
+ANSWER :			
+                                B
+                               / \
+                   ___________/   \___________  
+                  /                           \
+                 /                             \
+                B                               B               
+               / \                             / \             
+           ___/   \___                     ___/   \___
+          /           \                   /           \       
+         /             \                 /             \     
+        B               B               B               R   
+                                                      _/ \_
+                                                     /     \
+                                                    B       B
+							     \
+							      R
+--------------------------------------------------------------------------------------
+QUESTION THREE
+--------------------------------------------------------------------------------------
+Using the keys 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 and 12, draw a binary max heap that stores these
+keys in some legal heap order, and has the keys 3, 2 and 1 in left-to-right order in the last 
+three positions (i.e., the rightmost 3 nodes at the bottom-most level), such that after 2 
+consecutive calls to deleteMax(), the bottom-most level consists of the keys 1, 2 and 3, in 
+that left-to-right order.
+
+ANSWER :
+[12, 11, 9, 10, 7, 4, 5, 8, 6, 3, 2, 1]
+
+                                12
+                               /  \
+                   ___________/    \___________  
+                  /                            \
+                 /                              \
+                11                               9
+               / \                              / \             
+           ___/   \___                      ___/   \___
+          /           \                    /           \       
+         /             \                  /             \     
+       10               7                4               5
+      _/ \_           _/ \_            _/
+     /     \         /     \          /    
+    8       6       3       2        1
+
+[10, 8, 9, 6, 7, 4, 5, 1, 2, 3]
+                                10
+                               /  \
+                   ___________/    \___________
+                  /                            \
+                 /                              \
+                8                                9
+               / \                              / \
+           ___/   \___                      ___/   \___
+          /           \                    /           \
+         /             \                  /             \
+        6               7                4               5
+      _/ \_           _/
+     /     \         /    
+    1       2       3      
+--------------------------------------------------------------------------------------
+QUESTION FOUR
+--------------------------------------------------------------------------------------
+a) Using the keys 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 and 12, draw a binary min heap that stores 
+these keys in some legal heap order, where deleting the key 6 would cause the replacement item to 
+bubble up.
+                                1
+                               / \
+                   ___________/   \___________
+                  /                           \
+                 /                             \
+                5                               2
+               / \                             / \
+           ___/   \___                     ___/   \___
+          /           \                   /           \
+         /             \                 /             \
+       	6               7               3              12
+      _/ \_           _/ \_           _/
+     /     \         /     \         /
+    10     11       8       9       4
+
+b) Using the keys 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 and 12, draw a binary min heap that stores 
+these keys in some legal heap order, where deleting the key 8 would cause the replacement item 
+to trickle down.
+                                1
+                               / \
+                   ___________/   \___________
+                  /                           \
+                 /                             \
+                5                               2
+               / \                             / \
+           ___/   \___                     ___/   \___
+          /           \                   /           \
+         /             \                 /             \
+        6               8               3               4
+      _/ \_           _/ \_           _/
+     /     \         /     \         /
+    10     11       7       9       12
+
+c) Is it possible to construct a single min heap where deleting a 6 would cause the replacement 
+node to bubble up, but where instead deleting an 8 would cause trickling down? (The question is 
+assuming we would delete either one or the other, but not both.) Explain why/why not.
+
+Not possible. Because to replace an element from a heap you replace it with the last element in the
+heap. To have something trickle down, it needs to be greater than 8. To have something bubble up, it
+needs to be greater than 6.
+--------------------------------------------------------------------------------------
